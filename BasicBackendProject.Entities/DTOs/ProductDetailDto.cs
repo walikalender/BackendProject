@@ -1,17 +1,17 @@
 ﻿using BasicBackendProject.Core.Entities;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace BasicBackendProject.Entities.Concrete
+namespace BasicBackendProject.Entities.DTOs
 {
-    public class Product : IEntity
+    [NotMapped]
+    public class ProductDetailDto:IDto
     {
         public int ProductId { get; set; }
-        public int CategoryId { get; set; }
         public string ProductName { get; set; }
-        public decimal UnitPrice { get; set; }
+        public string CategoryName { get; set; }
         public short UnitsInStock { get; set; }
-        public string QuantityPerUnit { get; set; }
     }
 }

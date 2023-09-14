@@ -1,4 +1,4 @@
-﻿using BasicBackendProject.Core.DataAccess;
+﻿using BasicBackendProject.Core.DataAccess.EntityFramework;
 using BasicBackendProject.DataAccess.Abstract;
 using BasicBackendProject.DataAccess.Concrete.Context;
 using BasicBackendProject.Entities.Concrete;

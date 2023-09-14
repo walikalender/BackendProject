@@ -1,4 +1,5 @@
 ﻿using BasicBackendProject.Entities.Concrete;
+using BasicBackendProject.Entities.DTOs;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using System;
@@ -11,10 +12,12 @@ namespace BasicBackendProject.DataAccess.Concrete.Context
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;database=NorthwindContext;trusted_connection=True;");
+            optionsBuilder.UseSqlServer(@"Server=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\waali\OneDrive\Masaüstü\BackendProject\BasicBackendProject\BasicBackendProject.DataAccess\Database1.mdf;Integrated Security=True");
         }
 
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<ProductDetailDto> ProductDetailDtos { get; set; }
+
     }
 }

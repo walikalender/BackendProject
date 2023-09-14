@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BasicBackendProject.Business.Concrete;
+using BasicBackendProject.DataAccess.Concrete.EntityFramework;
+using System;
 
 namespace BasicBackendProject.ConsoleUI
 {
@@ -6,7 +8,11 @@ namespace BasicBackendProject.ConsoleUI
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            ProductManager productManager = new ProductManager(new EfProductDal());
+            foreach (var item in productManager.GetProductDetails())
+            {
+                Console.WriteLine(item.ProductName + " "+ item.CategoryName);
+            }
         }
     }
 }

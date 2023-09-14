@@ -1,4 +1,5 @@
 ﻿using BasicBackendProject.Entities.Concrete;
+using BasicBackendProject.Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,5 +13,6 @@ namespace BasicBackendProject.Business.Abstract
         Product GetById(int id);
         List<Product> DecreasedPrice();
         List<Product> GetProductsByPriceRange(decimal minPrice, decimal maxPrice);
+        List<ProductDetailDto> GetProductDetails();
     }
 }

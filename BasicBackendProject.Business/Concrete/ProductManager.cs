@@ -1,6 +1,7 @@
 ﻿using BasicBackendProject.Business.Abstract;
 using BasicBackendProject.DataAccess.Abstract;
 using BasicBackendProject.Entities.Concrete;
+using BasicBackendProject.Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,6 +39,11 @@ namespace BasicBackendProject.Business.Concrete
         public List<Product> DecreasedPrice()
         {
             return _productDal.GetAll().OrderByDescending(p => p.UnitPrice).ToList();
+        }
+
+        public List<ProductDetailDto> GetProductDetails()
+        {
+            return _productDal.GetProductDetails();
         }
     }
 }
