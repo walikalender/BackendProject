@@ -1,4 +1,5 @@
 ﻿using BasicBackendProject.Business.Abstract;
+using BasicBackendProject.Core.Utilities.Results;
 using BasicBackendProject.DataAccess.Abstract;
 using BasicBackendProject.Entities.Concrete;
 using System;
@@ -14,9 +15,9 @@ namespace BasicBackendProject.Business.Concrete
         {
                 _categoryDal = categoryDal;
         }
-        public List<Category> GetAll()
+        public IDataResult<List<Category>> GetAll()
         {
-          return  _categoryDal.GetAll();
+          return  new SuccessDataResult<List<Category>>(_categoryDal.GetAll());
         }
     }
 }

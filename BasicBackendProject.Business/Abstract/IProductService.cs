@@ -1,4 +1,6 @@
-﻿using BasicBackendProject.Entities.Concrete;
+﻿using BasicBackendProject.Core;
+using BasicBackendProject.Core.Utilities.Results;
+using BasicBackendProject.Entities.Concrete;
 using BasicBackendProject.Entities.DTOs;
 using System;
 using System.Collections.Generic;
@@ -8,11 +10,11 @@ namespace BasicBackendProject.Business.Abstract
 {
     public interface IProductService
     {
-        void Add(Product product);
-        List<Product> GetAll();
-        Product GetById(int id);
-        List<Product> DecreasedPrice();
-        List<Product> GetProductsByPriceRange(decimal minPrice, decimal maxPrice);
-        List<ProductDetailDto> GetProductDetails();
+        IResult Add(Product product);
+        IDataResult<List<Product>> GetAll();
+        IDataResult<Product> GetById(int id);
+        IDataResult<List<Product>> DecreasedPrice();
+        IDataResult<List<Product>> GetProductsByPriceRange(int minPrice, int maxPrice);
+        IDataResult<List<ProductDetailDto>> GetProductDetails();
     }
 }

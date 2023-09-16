@@ -1,4 +1,8 @@
 ﻿using BasicBackendProject.Business.Abstract;
+using BasicBackendProject.Business.Constants;
+using BasicBackendProject.Core;
+using BasicBackendProject.Core.Utilities;
+using BasicBackendProject.Core.Utilities.Results;
 using BasicBackendProject.DataAccess.Abstract;
 using BasicBackendProject.Entities.Concrete;
 using BasicBackendProject.Entities.DTOs;
@@ -16,34 +20,45 @@ namespace BasicBackendProject.Business.Concrete
         {
             _productDal = productDal;
         }
-        public void Add(Product product)
+        public IResult Add(Product product)
         {
-            _productDal.Add(product);   
-        }
+            //business codes
 
-        public List<Product> GetAll()
-        {
-            return _productDal.GetAll();
-        }
+            if (product.ProductName.Length < 2)
+            {
+                new ErrorResult(Messages.ProductNameInvalid);
+            }
 
-        public Product GetById(int id)
-        {
-           return _productDal.Get(p => p.ProductId == id);
-        }
+            _productDal.Add(product);
 
-        public List<Product> GetProductsByPriceRange(decimal minPrice, decimal maxPrice)
-        {
-            return _productDal.GetAll().Where(p => p.UnitPrice >= minPrice && p.UnitPrice <= maxPrice).ToList();
-        }
+            return new SuccessResult(Messages.ProductAdded);
 
-        public List<Product> DecreasedPrice()
-        {
-            return _productDal.GetAll().OrderByDescending(p => p.UnitPrice).ToList();
-        }
 
-        public List<ProductDetailDto> GetProductDetails()
+        }
+        public IDataResult<List<Product>> GetAll()
         {
-            return _productDal.GetProductDetails();
+            if (DateTime.Now.Hour==22)
+            {
+                return new ErrorDataResult<List<Product>>(Messages.MaintenanceTime);
+            }
+
+            return new SuccessDataResult<List<Product>>(_productDal.GetAll(),Messages.ProductsListed);
+        }
+        public IDataResult<Product> GetById(int id)
+        {
+            return new SuccessDataResult<Product>(_productDal.Get(p => p.ProductId == id));
+        }
+        public IDataResult<List<Product>> GetProductsByPriceRange(int minPrice, int maxPrice)
+        {
+            return new SuccessDataResult<List<Product>>(_productDal.GetAll().Where(p => p.UnitPrice >= minPrice && p.UnitPrice <= maxPrice).ToList());
+        }
+        public IDataResult<List<Product>> DecreasedPrice()
+        {
+            return new SuccessDataResult<List<Product>>(_productDal.GetAll().OrderByDescending(p => p.UnitPrice).ToList());
+        }
+        public IDataResult<List<ProductDetailDto>> GetProductDetails()
+        {
+            return new SuccessDataResult<List<ProductDetailDto>>(_productDal.GetProductDetails());
         }
     }
 }
