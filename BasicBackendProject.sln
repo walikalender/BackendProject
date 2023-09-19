@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicBackendProject.Entities", "BasicBackendProject.Entities\BasicBackendProject.Entities.csproj", "{07EAC2B1-0FD6-4DB2-9AA0-454ED1A337DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasicBackendProject.Entities", "BasicBackendProject.Entities\BasicBackendProject.Entities.csproj", "{07EAC2B1-0FD6-4DB2-9AA0-454ED1A337DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicBackendProject.DataAccess", "BasicBackendProject.DataAccess\BasicBackendProject.DataAccess.csproj", "{1D8A7F33-4C02-431F-A5E8-C4699D3AA314}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasicBackendProject.DataAccess", "BasicBackendProject.DataAccess\BasicBackendProject.DataAccess.csproj", "{1D8A7F33-4C02-431F-A5E8-C4699D3AA314}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicBackendProject.Core", "BasicBackendProject.Core\BasicBackendProject.Core.csproj", "{47ED28AF-3C1C-4C0A-8617-34C9733C41A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasicBackendProject.Core", "BasicBackendProject.Core\BasicBackendProject.Core.csproj", "{47ED28AF-3C1C-4C0A-8617-34C9733C41A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicBackendProject.Business", "BasicBackendProject.Business\BasicBackendProject.Business.csproj", "{043C6A03-61A9-424E-9A45-0EF5DCB2534A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasicBackendProject.Business", "BasicBackendProject.Business\BasicBackendProject.Business.csproj", "{043C6A03-61A9-424E-9A45-0EF5DCB2534A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicBackendProject.ConsoleUI", "BasicBackendProject.ConsoleUI\BasicBackendProject.ConsoleUI.csproj", "{DAEC70D9-C937-4E8B-ADB9-A60388A92371}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasicBackendProject.ConsoleUI", "BasicBackendProject.ConsoleUI\BasicBackendProject.ConsoleUI.csproj", "{DAEC70D9-C937-4E8B-ADB9-A60388A92371}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{B931ADBF-943B-4F41-9E32-3B4DF9B6057D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{DAEC70D9-C937-4E8B-ADB9-A60388A92371}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DAEC70D9-C937-4E8B-ADB9-A60388A92371}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DAEC70D9-C937-4E8B-ADB9-A60388A92371}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B931ADBF-943B-4F41-9E32-3B4DF9B6057D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B931ADBF-943B-4F41-9E32-3B4DF9B6057D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B931ADBF-943B-4F41-9E32-3B4DF9B6057D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B931ADBF-943B-4F41-9E32-3B4DF9B6057D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
