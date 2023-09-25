@@ -12,7 +12,7 @@ namespace BasicBackendProject.DataAccess.Concrete.Context
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\waali\OneDrive\Masaüstü\BackendProject\BasicBackendProject\BasicBackendProject.DataAccess\Database1.mdf;Integrated Security=True");
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=Northwind;Integrated Security=True");
         }
 
         public DbSet<Product> Products { get; set; }
