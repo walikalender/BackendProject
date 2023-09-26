@@ -13,7 +13,7 @@ namespace WebAPI.Controllers
     [ApiController] // attribute : class ile ilgili bilgi verme onu imzalama yöntemidir.
     public class ProductsController : ControllerBase
     {
-        // LooselyCoupled
+        // LooselyCoupled : Zayıf bağımlılık
         IProductService _productService;
 
         public ProductsController(IProductService productService)
