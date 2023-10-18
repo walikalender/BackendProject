@@ -1,15 +1,19 @@
 ﻿using BasicBackendProject.Business.Abstract;
 using BasicBackendProject.Business.Constants;
+using BasicBackendProject.Business.ValidationRules.FluentValidation;
 using BasicBackendProject.Core;
+using BasicBackendProject.Core.CrossCuttingConcerns;
 using BasicBackendProject.Core.Utilities;
 using BasicBackendProject.Core.Utilities.Results;
 using BasicBackendProject.DataAccess.Abstract;
 using BasicBackendProject.Entities.Concrete;
 using BasicBackendProject.Entities.DTOs;
+using FluentValidation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using ValidationException = FluentValidation.ValidationException;
 
 namespace BasicBackendProject.Business.Concrete
 {
@@ -24,10 +28,7 @@ namespace BasicBackendProject.Business.Concrete
         {
             //business codes
 
-            if (product.ProductName.Length < 2)
-            {
-                new ErrorResult(Messages.ProductNameInvalid);
-            }
+            ValidationTool.Validate(new ProductValidator(), product);
 
             _productDal.Add(product);
 
@@ -59,6 +60,11 @@ namespace BasicBackendProject.Business.Concrete
         public IDataResult<List<ProductDetailDto>> GetProductDetails()
         {
             return new SuccessDataResult<List<ProductDetailDto>>(_productDal.GetProductDetails());
+        }
+
+        public class OrnekModel
+        {
+
         }
     }
 }
